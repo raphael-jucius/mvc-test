@@ -1,4 +1,4 @@
-package br.edu.uniaeso;
+package View;
 
 import java.awt.GridLayout;
 import java.awt.Label;
@@ -9,11 +9,11 @@ import java.util.Map;
 
 import java.awt.Frame;
 
-public class TelaResultado extends Window{
+public class TelaResultadoPercentual extends Window{
     
     private Map <String, Label>labels = new HashMap();
     
-    public TelaResultado(Frame parent){
+    public TelaResultadoPercentual(Frame parent){
         super(parent);
         this.setSize(110,120);
         this.setLayout(new GridLayout(0,2)); // Grid com qualquer numero
@@ -44,8 +44,12 @@ public class TelaResultado extends Window{
      * Atualiza a quantidade de votos para uma determinada opcao
      */
     public void novoVoto(String opcao, int nvotos) {
+        
+    }
+
+    public void novoVoto(String opcao, int nvotos, int totalVotos) {
         Label votos;
         votos = labels.get(opcao);
-        votos.setText(""+nvotos);
+        votos.setText(""+ (nvotos/totalVotos)*100);
     }
 }
